@@ -1,0 +1,16 @@
+# Development Environment Variables
+environment      = "dev"
+primary_region   = "us-east-1"
+dr_region        = "us-west-2"
+
+# More relaxed DR testing settings for development
+rto_threshold_minutes = 30
+rpo_threshold_minutes = 120
+
+# Security settings for dev
+enable_simulated_pen_testing = false
+enable_db_security_assessment = true
+
+# Reduced log retention for dev environment
+log_retention_days = 3
+results_retention_days = 7

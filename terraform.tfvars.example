@@ -1,0 +1,28 @@
+# Example terraform.tfvars file - Copy this to terraform.tfvars and fill in your values
+# This file serves as documentation for required variables
+
+# Project and Environment
+project_name     = "example-project"
+environment      = "dev"
+
+# Regions
+primary_region   = "us-east-1"
+dr_region        = "us-west-2"
+
+# Network Configuration
+vpc_id           = "vpc-12345678"
+vpc_cidr_primary = "10.0.0.0/16"
+vpc_cidr_dr      = "10.1.0.0/16"
+subnets_primary  = ["10.0.1.0/24", "10.0.2.0/24"]
+subnets_dr       = ["10.1.1.0/24", "10.1.2.0/24"]
+
+# EKS Configuration
+eks_cluster_name = "example-cluster"
+
+# Notification Settings
+notification_email = "your-email@example.com"
+alert_emails       = ["your-email@example.com"]
+
+# Security Settings
+enable_simulated_pen_testing = false
+pen_test_targets             = []

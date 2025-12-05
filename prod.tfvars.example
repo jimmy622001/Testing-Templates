@@ -1,0 +1,16 @@
+# Production Environment Variables
+environment      = "prod"
+primary_region   = "us-east-1"
+dr_region        = "us-west-2"
+
+# Stricter DR testing settings for production
+rto_threshold_minutes = 15
+rpo_threshold_minutes = 60
+
+# Security settings for production
+enable_simulated_pen_testing = true
+enable_db_security_assessment = true
+
+# Increased log retention for production environment
+log_retention_days = 30
+results_retention_days = 90
