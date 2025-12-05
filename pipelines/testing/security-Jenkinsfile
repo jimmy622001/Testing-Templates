@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Security Testing') {
+            steps {
+                echo 'Running security tests'
+                sh 'terraform init'
+                sh 'terraform plan'
+            }
+        }
+    }
+}
