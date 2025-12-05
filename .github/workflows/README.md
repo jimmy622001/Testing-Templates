@@ -77,6 +77,30 @@ To run these workflows, you need to set up the following GitHub secrets:
 - `AWS_SECRET_ACCESS_KEY`: Corresponding AWS secret access key
 - `INFRACOST_API_KEY`: Required for cost optimization tests (get at https://www.infracost.io/)
 
+## Known Issues and Troubleshooting
+
+### Package Installation Issues
+
+Some workflows may encounter issues with package installation:
+
+- **tfsec-python**: This package doesn't exist on PyPI. The workflows have been updated to use the Go-based `tfsec` tool instead.
+- **detect-secrets**: Sometimes requires specific Python versions. Consider using Python 3.9+ for best compatibility.
+
+### Directory Structure Issues
+
+The workflows expect an `environments` directory structure with subdirectories for each environment (e.g., `environments/dev`, `environments/prod`). If these directories don't exist:
+
+1. The workflows will attempt to create them automatically
+2. Sample `testing.tf` and `variables.tf` files will be generated
+
+### AWS Credentials Issues
+
+If you see errors about AWS credentials, ensure:
+
+1. The GitHub secrets are properly configured
+2. The credentials have sufficient permissions for the actions being performed
+3. The credentials are valid and not expired
+
 ## Using Test Results
 
 Test results are stored as artifacts in each workflow run and can be downloaded for further analysis.

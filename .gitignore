@@ -37,3 +37,12 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+# Ignore .codemie directory
+.codemie/
+
+# Environment-specific variable files
+environments/*/terraform.tfvars
+environments/*/*.tfplan
+environments/*/.terraform/
+environments/*/.terraform.lock.hcl

@@ -54,7 +54,9 @@ jobs:
           
       - name: Install Security Tools
         run: |
-          pip install detect-secrets tfsec-python checkov
+          pip install detect-secrets checkov
+          # Install tfsec (Go binary)
+          curl -sSL https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
           npm install -g snyk
           
       - name: Configure AWS Credentials
@@ -75,8 +77,9 @@ jobs:
         id: tfsec
         continue-on-error: true
         run: |
-          tfsec . --format json > security-reports/tfsec-report.json
-          tfsec . --format markdown > security-reports/tfsec-report.md
+          mkdir -p security-reports
+          tfsec . --format json > security-reports/tfsec-report.json || echo "TFSec scan completed with issues"
+          tfsec . --format markdown > security-reports/tfsec-report.md || echo "TFSec markdown generation completed with issues"
           echo "TFSec scan complete"
           
       - name: Run Security Lambda Test

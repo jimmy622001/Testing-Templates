@@ -33,6 +33,27 @@ This repository contains reusable testing modules, pipelines, and documentation 
 pip install detect-secrets checkov terraform-compliance
 ```
 
+## GitHub Actions Workflows
+
+This repository includes GitHub Actions workflows for automated testing:
+
+- **Security Testing**: `.github/workflows/security-tests.yml`
+- **DR Testing**: `.github/workflows/dr-tests.yml`
+- **Compliance Testing**: `.github/workflows/compliance-tests.yml`
+- **Performance/Cost Testing**: `.github/workflows/performance-cost-tests.yml`
+- **Sustainability Testing**: `.github/workflows/sustainability-tests.yml`
+
+### Workflow Structure
+
+The workflows follow the project structure with environments (`dev`, `prod`) and create any necessary directories and files if they don't exist. Workflows can be triggered manually or on specific events like pushes to certain files.
+
+### Required GitHub Secrets
+
+- `AWS_ACCESS_KEY_ID`: AWS access key with appropriate permissions
+- `AWS_SECRET_ACCESS_KEY`: Corresponding AWS secret access key
+
+For details on using the workflows, see [.github/workflows/README.md](.github/workflows/README.md).
+
 ## Managing Variables and Secrets
 
 We use `.tfvars` files to manage environment-specific and sensitive values. See [TFVARS_USAGE.md](TFVARS_USAGE.md) for detailed instructions.
